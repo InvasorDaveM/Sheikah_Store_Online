@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/sheikah_store_online/static/css/main.073c9b0a.css",
-    "main.js": "/sheikah_store_online/static/js/main.f75e5050.js",
+    "main.js": "/sheikah_store_online/static/js/main.3f1d320c.js",
     "static/js/787.f5a68f3d.chunk.js": "/sheikah_store_online/static/js/787.f5a68f3d.chunk.js",
     "index.html": "/sheikah_store_online/index.html",
     "main.073c9b0a.css.map": "/sheikah_store_online/static/css/main.073c9b0a.css.map",
-    "main.f75e5050.js.map": "/sheikah_store_online/static/js/main.f75e5050.js.map",
+    "main.3f1d320c.js.map": "/sheikah_store_online/static/js/main.3f1d320c.js.map",
     "787.f5a68f3d.chunk.js.map": "/sheikah_store_online/static/js/787.f5a68f3d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.f75e5050.js"
+    "static/js/main.3f1d320c.js"
   ]
 }
