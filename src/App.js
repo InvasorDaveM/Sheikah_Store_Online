@@ -10,7 +10,7 @@ import icon from "./icon.png";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import CustomerCreationObject from "./components/customerCreation.component";
+import CustomerCreationObject from "./components/create-customer.component";
 import libraryView from "./components/libraryView.component";
 import productsView from "./components/productsView.component";
 import profileView from "./components/profileView.component";
@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <header classNme="App-header">
+   {/*   <header className="App-header"> */}
           <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
               <Navbar.Brand href="#home">
@@ -33,13 +33,13 @@ function App() {
                   className="d-inline-block align-top"
                 />
                 {"  "}
-                <Link>{/*LINK PARA SALIR DE LA APP*/}</Link>
+                {/* <Link> LINK PARA SALIR DE LA APP </Link> */}
               </Navbar.Brand>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
                   {/*<Nav.Link href="#features">Features</Nav.Link>*/}
-                  <Link to={"/customerCreation"} className="nav-link">
+                  <Link to={"/create-customer"} className="nav-link">
                     Products
                   </Link>
                   {/*<Nav.Link href="#pricing">Pricing</Nav.Link>*/}
@@ -73,7 +73,7 @@ function App() {
               </Navbar.Collapse>
             </Container>
           </Navbar>
-        </header>
+    {/*    </header> */}
         <Container>
           <Row>
             <Col md={12}>
@@ -86,7 +86,7 @@ function App() {
                   />
                   <Route
                     exact
-                    path="/customerCreation"
+                    path="/create-customer"
                     component={(props) => <CustomerCreationObject {...props} />}
                   />
                 </Switch>
