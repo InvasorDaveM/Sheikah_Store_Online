@@ -6,14 +6,14 @@ let customerSchema = new Schema(
     name: {
       type: String,
     },
-    email: {
+    category: {
       type: String,
     },
     birthdate: {
       type: Date,
     },
     user: {
-        type: String,
+      type: String,
     },
     password: {
       type: String,
