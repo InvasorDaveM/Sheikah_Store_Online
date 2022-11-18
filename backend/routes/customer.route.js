@@ -17,7 +17,7 @@ router.route("/create-customer").post((req, res, next) => {
   });
 });
 
-// LEER Estudiante
+// LEER Estudiantes
 router.route("/").get((req, res, next) => {
   customerSchema.find((error, data) => {
     if (error) {
@@ -32,6 +32,19 @@ router.route("/").get((req, res, next) => {
 router.route("/edit-customer/:id").get((req, res, next) => {
   customerSchema.findById(req.params.id, (error, data) => {
     if (error) {
+      return next(error);
+    } else {
+      res.json(data);
+    }
+  });
+});
+
+// Verificar un Estudiante
+
+router.route("/verify-customer/:user").get((req, res, next) => {
+  customerSchema.findOne({ user: req.params.user }, (error, data) => {
+    if (error) {
+      console.log(error);
       return next(error);
     } else {
       res.json(data);
