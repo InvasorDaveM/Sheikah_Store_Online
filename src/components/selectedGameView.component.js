@@ -5,6 +5,8 @@ import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
 import axios from "axios";
 
+import global from "./../App";
+
 export default class selectedGameView extends Component {
   constructor(props) {
     super(props);
@@ -61,6 +63,7 @@ export default class selectedGameView extends Component {
   onSubmit(e) {
     e.preventDefault();
 
+    console.log(global.userId);
     const gameObject = {
       name: this.state.name,
       category: this.state.category,

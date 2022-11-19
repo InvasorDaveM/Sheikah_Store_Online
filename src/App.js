@@ -14,8 +14,21 @@ import CustomerCreationObject from "./components/customerCreation.component";
 import GamesViewObject from "./components/gamesView.component";
 import SelectedGameViewObject from "./components/selectedGameView.component";
 import LogInObject from "./components/logIn.component";
+import ProfileViewObject from "./components/profileView.component";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+
+let global = {
+  userId: "",
+
+  get userId() {
+    return `${this.user}`;
+  },
+
+  set userId(userid) {
+    this.userId = userid;
+  },
+};
 
 function App() {
   return (
@@ -34,6 +47,13 @@ function App() {
                     exact
                     path="/"
                     component={(props) => <LogInObject {...props} />}
+                  />
+
+                  {/* RUTA A LISTA DE CREACIÓN DE CLIENTE */}
+                  <Route
+                    exact
+                    path="/customerCreation"
+                    component={(props) => <CustomerCreationObject {...props} />}
                   />
 
                   <div>
@@ -59,11 +79,11 @@ function App() {
                         <Navbar.Collapse id="responsive-navbar-nav">
                           <Nav className="me-auto">
                             {/*<Nav.Link href="#features">Features</Nav.Link>*/}
-                            <Link to={"/customerCreation"} className="nav-link">
+                            <Link to={"/gamesView"} className="nav-link">
                               Products
                             </Link>
                             {/*<Nav.Link href="#pricing">Pricing</Nav.Link>*/}
-                            <Link to={"/gamesView"} className="nav-link">
+                            <Link to={"/"} className="nav-link">
                               Library
                             </Link>
                             {/*<NavDropdown title="Dropdown" id="collasible-nav-dropdown">
@@ -94,14 +114,6 @@ function App() {
                       </Container>
                     </Navbar>
 
-                    {/* RUTA A LISTA DE CREACIÓN DE CLIENTE */}
-                    <Route
-                      exact
-                      path="/customerCreation"
-                      component={(props) => (
-                        <CustomerCreationObject {...props} />
-                      )}
-                    />
                     {/* RUTA A LISTA DE JUEGOS DE LA TIENDA */}
                     <Route
                       exact
@@ -114,6 +126,11 @@ function App() {
                       component={(props) => (
                         <SelectedGameViewObject {...props} />
                       )}
+                    />
+                    <Route
+                      exact
+                      path="/profileView"
+                      component={(props) => <ProfileViewObject {...props} />}
                     />
                   </div>
                 </Switch>

@@ -6,9 +6,9 @@ import Button from "react-bootstrap/Button";
 export default class GameTableRow extends Component {
   constructor(props) {
     super(props);
-    this.deleteGame = this.deleteGame.bind(this);
+    //    this.deleteGame = this.deleteGame.bind(this);
   }
-
+  /*
   deleteGame() {
     axios
       .delete("http://localhost:4000/games/delete-game/" + this.props.obj._id)
@@ -19,6 +19,7 @@ export default class GameTableRow extends Component {
         console.log(error);
       });
   }
+*/
 
   render() {
     return (
@@ -44,11 +45,10 @@ export default class GameTableRow extends Component {
             path={"product/:id"}
             to={"/selectedGameView/" + this.props.obj._id}
           >
-            Obtener
+            <Button onClick={this.deleteGame} size="sm" variant="danger">
+              Obtener
+            </Button>
           </Link>
-          <Button onClick={this.deleteGame} size="sm" variant="danger">
-            Borrar
-          </Button>
         </td>
       </tr>
     );
