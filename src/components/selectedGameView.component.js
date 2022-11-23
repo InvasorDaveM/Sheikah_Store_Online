@@ -11,9 +11,6 @@ export default class selectedGameView extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangeStudentName = this.onChangeStudentName.bind(this);
-    this.onChangeStudentEmail = this.onChangeStudentEmail.bind(this);
-    this.onChangeStudentRollno = this.onChangeStudentRollno.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     // State
@@ -48,43 +45,24 @@ export default class selectedGameView extends Component {
       });
   }
 
-  onChangeStudentName(e) {
-    this.setState({ name: e.target.value });
-  }
-
-  onChangeStudentEmail(e) {
-    this.setState({ email: e.target.value });
-  }
-
-  onChangeStudentRollno(e) {
-    this.setState({ rollno: e.target.value });
-  }
-
   onSubmit(e) {
     e.preventDefault();
 
     console.log(global.userId);
-    const gameObject = {
-      name: this.state.name,
-      category: this.state.category,
-      price: this.state.price,
-      description: this.state.description,
-      image: this.state.image,
-      producer: this.state.producer,
+    console.log(this.props.match.params.id);
+    const libraryObject = {
+      id_customer: global.userId,
+      id_game: this.props.match.params.id,
     };
 
     axios
-      .put(
-        "http://localhost:4000/games/update-game/" + this.props.match.params.id,
-        gameObject
+      .post(
+        "http://localhost:4000/customer-games/insert-bought-game",
+        libraryObject
       )
-      .then((res) => {
-        console.log(res.data);
-        console.log("Game successfully updated");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      .then((res) => console.log(res.data));
+
+    window.alert("Game bought");
 
     // Redirect to Games View
     this.props.history.push("/gamesView");
@@ -140,19 +118,21 @@ export default class selectedGameView extends Component {
               <th>Acción</th>
             </tr>
           </thead>
-          <tr>
-            <td>{this.state.name}</td>
-            <td>{this.state.category}</td>
-            <td>{this.state.price}</td>
-            <td>{this.state.description}</td>
-            <td>{this.state.image}</td>
-            <td>{this.state.producer}</td>
-            <td>
-              <Button onClick={this.onSubmit} size="sm" variant="danger">
-                Adquirir
-              </Button>
-            </td>
-          </tr>
+          <tbody>
+            <tr>
+              <td>{this.state.name}</td>
+              <td>{this.state.category}</td>
+              <td>{this.state.price}</td>
+              <td>{this.state.description}</td>
+              <td>{this.state.image}</td>
+              <td>{this.state.producer}</td>
+              <td>
+                <Button onClick={this.onSubmit} size="sm" variant="danger">
+                  Adquirir
+                </Button>
+              </td>
+            </tr>
+          </tbody>
         </Table>
       </div>
     );

@@ -15,6 +15,7 @@ import GamesViewObject from "./components/gamesView.component";
 import SelectedGameViewObject from "./components/selectedGameView.component";
 import LogInObject from "./components/logIn.component";
 import ProfileViewObject from "./components/profileView.component";
+import LibraryViewObject from "./components/libraryView.component";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -83,7 +84,7 @@ function App() {
                               Products
                             </Link>
                             {/*<Nav.Link href="#pricing">Pricing</Nav.Link>*/}
-                            <Link to={"/"} className="nav-link">
+                            <Link to={"/libraryView"} className="nav-link">
                               Library
                             </Link>
                             {/*<NavDropdown title="Dropdown" id="collasible-nav-dropdown">
@@ -119,6 +120,11 @@ function App() {
                       exact
                       path="/gamesView"
                       component={(props) => <GamesViewObject {...props} />}
+                    />
+                    <Route
+                      exact
+                      path="/libraryView"
+                      component={(props) => <LibraryViewObject {...props} />}
                     />
                     <Route
                       exact

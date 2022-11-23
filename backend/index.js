@@ -6,6 +6,7 @@ let bodyParser = require("body-parser");
 // Ruta de Express
 const customerRoute = require("../backend/routes/customer.route");
 const gameRoute = require("../backend/routes/game.route");
+const libraryRoute = require("../backend/routes/library.route");
 
 // DB Config
 const db = require("../backend/database/db").mongoURI;
@@ -25,6 +26,7 @@ app.use(
 app.use(cors());
 app.use("/customers", customerRoute);
 app.use("/games", gameRoute);
+app.use("/customer-games", libraryRoute);
 
 // PORT
 const port = process.env.PORT || 4000;
