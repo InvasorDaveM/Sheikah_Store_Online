@@ -36,18 +36,7 @@ export default class libraryView extends Component {
         console.log(error);
       });
 
-    /*
-      axios
-      .get("http://localhost:4000/games/")
-      .then((res) => {
-        this.setStateGame({
-          games: res.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-      */
+    console.log(this.games);
   }
 
   DataTable() {
@@ -70,7 +59,6 @@ export default class libraryView extends Component {
         .catch((error) => {
           console.log(error);
         });
-      console.log(this.games);
       return <LibraryTableRow obj={res} key={i} />;
     });
   }
@@ -87,7 +75,9 @@ export default class libraryView extends Component {
               <th>Descripción</th>
               <th>Imagen</th>
               <th>Productora</th>
+              {/*
               <th>Acción</th>
+              */}
             </tr>
           </thead>
           <tbody>{this.DataTable()}</tbody>

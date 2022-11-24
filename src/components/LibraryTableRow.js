@@ -20,8 +20,8 @@ export default class LibraryTableRow extends Component {
         <td>{this.props.obj.description}</td>
         <td>{this.props.obj.image}</td>
         <td>{this.props.obj.producer}</td>
+        {/*
         <td>
-          {/*
           <Link
             className="edit-link"
             path={"product/:id"}
@@ -29,11 +29,14 @@ export default class LibraryTableRow extends Component {
           >
             Obtener
           </Link>
-          */}
+
+
+
           <Button onClick={this.deleteGame} size="sm" variant="danger">
             Obtener
           </Button>
         </td>
+        */}
       </tr>
     );
   }

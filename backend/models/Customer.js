@@ -6,7 +6,7 @@ let customerSchema = new Schema(
     name: {
       type: String,
     },
-    category: {
+    email: {
       type: String,
     },
     birthdate: {

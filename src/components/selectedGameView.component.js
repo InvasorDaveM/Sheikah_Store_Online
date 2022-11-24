@@ -53,6 +53,15 @@ export default class selectedGameView extends Component {
     const libraryObject = {
       id_customer: global.userId,
       id_game: this.props.match.params.id,
+
+      //Parte picha
+
+      name: this.state.name,
+      category: this.state.category,
+      price: this.state.price,
+      description: this.state.description,
+      image: this.state.image,
+      producer: this.state.producer,
     };
 
     axios

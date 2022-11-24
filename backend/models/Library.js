@@ -9,6 +9,24 @@ let librarySchema = new Schema(
     id_game: {
       type: Object,
     },
+    name: {
+      type: String,
+    },
+    category: {
+      type: String,
+    },
+    price: {
+      type: Number,
+    },
+    description: {
+      type: String,
+    },
+    image: {
+      type: String,
+    },
+    producer: {
+      type: String,
+    },
   },
   {
     collection: "customer-games",

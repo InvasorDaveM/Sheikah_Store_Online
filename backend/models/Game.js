@@ -6,7 +6,7 @@ let gameSchema = new Schema(
     name: {
       type: String,
     },
-    email: {
+    category: {
       type: String,
     },
     price: {
