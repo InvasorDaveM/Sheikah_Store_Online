@@ -6,7 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import icon from "./icon.png";
+import icon from "./img/icon.png";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 

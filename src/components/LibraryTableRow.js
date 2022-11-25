@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
+//import img from "../img/products/Super Smash Bros. Ultimate.png"; //---> SACAR RUTA "REAL"
 
 export default class LibraryTableRow extends Component {
   constructor(props) {
@@ -14,7 +15,9 @@ export default class LibraryTableRow extends Component {
   render() {
     return (
       <tr>
-        <td>{this.props.obj.image}</td>
+        <td>
+          <img width="300" height="400" alt="" src={this.props.obj.image} />
+        </td>
         <td>{this.props.obj.name}</td>
         <td>{this.props.obj.category}</td>
         <td>{this.props.obj.description}</td>
