@@ -69,15 +69,11 @@ export default class libraryView extends Component {
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>Nombre</th>
-              <th>Categoría</th>
-              <th>Precio</th>
-              <th>Descripción</th>
-              <th>Imagen</th>
-              <th>Productora</th>
-              {/*
-              <th>Acción</th>
-              */}
+              <th>Cover</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Producer</th>
             </tr>
           </thead>
           <tbody>{this.DataTable()}</tbody>

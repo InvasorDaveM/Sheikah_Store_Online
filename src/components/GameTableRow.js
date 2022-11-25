@@ -24,12 +24,10 @@ export default class GameTableRow extends Component {
   render() {
     return (
       <tr>
+        <td>{this.props.obj.image}</td>
         <td>{this.props.obj.name}</td>
         <td>{this.props.obj.category}</td>
         <td>{this.props.obj.price}</td>
-        <td>{this.props.obj.description}</td>
-        <td>{this.props.obj.image}</td>
-        <td>{this.props.obj.producer}</td>
         <td>
           {/*
           <Link
@@ -46,7 +44,7 @@ export default class GameTableRow extends Component {
             to={"/selectedGameView/" + this.props.obj._id}
           >
             <Button onClick={this.deleteGame} size="sm" variant="danger">
-              Obtener
+              More Details
             </Button>
           </Link>
         </td>

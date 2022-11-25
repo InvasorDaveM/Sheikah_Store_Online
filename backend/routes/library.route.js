@@ -29,4 +29,18 @@ router.route("/:id_customer").get((req, res, next) => {
   });
 });
 
+router.route("/verify-library/:id_customer/:id_game").get((req, res, next) => {
+  librarySchema.findOne(
+    { id_customer: req.params.id_customer, id_game: req.params.id_game },
+    (error, data) => {
+      if (error) {
+        console.log(error);
+        return next(error);
+      } else {
+        res.json(data);
+      }
+    }
+  );
+});
+
 module.exports = router;

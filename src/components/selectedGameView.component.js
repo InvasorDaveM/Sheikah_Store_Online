@@ -1,3 +1,4 @@
+/* eslint-disable react/style-prop-object */
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -23,6 +24,11 @@ export default class selectedGameView extends Component {
       producer: "",
     };
   }
+  verify = false;
+  textButton = "Get Game";
+  colorButton = {
+    backgroundColor: "Red",
+  };
 
   componentDidMount() {
     axios
@@ -48,36 +54,61 @@ export default class selectedGameView extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    console.log(global.userId);
-    console.log(this.props.match.params.id);
-    const libraryObject = {
-      id_customer: global.userId,
-      id_game: this.props.match.params.id,
+    if (this.verify == true) {
+      window.alert("You already have this game");
+      // Redirect to Library View
+      this.props.history.push("/libraryView");
+    } else {
+      console.log(global.userId);
+      console.log(this.props.match.params.id);
+      const libraryObject = {
+        id_customer: global.userId,
+        id_game: this.props.match.params.id,
 
-      //Parte picha
+        //Parte picha
 
-      name: this.state.name,
-      category: this.state.category,
-      price: this.state.price,
-      description: this.state.description,
-      image: this.state.image,
-      producer: this.state.producer,
-    };
+        name: this.state.name,
+        category: this.state.category,
+        price: this.state.price,
+        description: this.state.description,
+        image: this.state.image,
+        producer: this.state.producer,
+      };
 
-    axios
-      .post(
-        "http://localhost:4000/customer-games/insert-bought-game",
-        libraryObject
-      )
-      .then((res) => console.log(res.data));
+      axios
+        .post(
+          "http://localhost:4000/customer-games/insert-bought-game",
+          libraryObject
+        )
+        .then((res) => console.log(res.data));
 
-    window.alert("Game bought");
+      window.alert("Game bought");
 
-    // Redirect to Games View
-    this.props.history.push("/gamesView");
+      // Redirect to Games View
+      this.props.history.push("/gamesView");
+    }
   }
 
   render() {
+    axios
+      .get(
+        "http://localhost:4000/customer-games/verify-library/" +
+          global.userId +
+          "/" +
+          this.props.match.params.id
+      )
+      .then((res) => {
+        if (res.data != null) {
+          this.verify = true;
+          this.textButton = "In your libary";
+          this.colorButton = {
+            backgroundColor: "Gray",
+          };
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     return (
       <div className="form-wrapper">
         {/*
@@ -115,29 +146,34 @@ export default class selectedGameView extends Component {
         </Form>
         */}
 
+        <p>{this.state.image}</p>
+
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>Nombre</th>
-              <th>Categoría</th>
-              <th>Precio</th>
-              <th>Descripción</th>
-              <th>Imagen</th>
-              <th>Productora</th>
-              <th>Acción</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Producer</th>
+              <th>Price</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>{this.state.name}</td>
               <td>{this.state.category}</td>
-              <td>{this.state.price}</td>
               <td>{this.state.description}</td>
-              <td>{this.state.image}</td>
               <td>{this.state.producer}</td>
+              <td>{this.state.price}</td>
               <td>
-                <Button onClick={this.onSubmit} size="sm" variant="danger">
-                  Adquirir
+                <Button
+                  onClick={this.onSubmit}
+                  size="sm"
+                  variant="danger"
+                  style={this.colorButton}
+                >
+                  {this.textButton}
                 </Button>
               </td>
             </tr>
