@@ -12,6 +12,27 @@ export default class selectedGameView extends Component {
   constructor(props) {
     super(props);
 
+    axios
+      .get(
+        "http://localhost:4000/customer-games/verify-library/" +
+          global.userId +
+          "/" +
+          this.props.match.params.id
+      )
+      .then((res) => {
+        console.log(res.data);
+        if (res.data != null) {
+          this.verify = true;
+          this.textButton = "In your libary";
+          this.colorButton = {
+            backgroundColor: "Gray",
+          };
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
     this.onSubmit = this.onSubmit.bind(this);
 
     // State
@@ -31,6 +52,7 @@ export default class selectedGameView extends Component {
   };
 
   componentDidMount() {
+    console.log("3");
     axios
       .get(
         "http://localhost:4000/games/selected-game/" +
@@ -54,7 +76,7 @@ export default class selectedGameView extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    if (this.verify == true) {
+    if (this.verify === true) {
       window.alert("You already have this game");
       // Redirect to Library View
       this.props.history.push("/libraryView");
@@ -90,25 +112,6 @@ export default class selectedGameView extends Component {
   }
 
   render() {
-    axios
-      .get(
-        "http://localhost:4000/customer-games/verify-library/" +
-          global.userId +
-          "/" +
-          this.props.match.params.id
-      )
-      .then((res) => {
-        if (res.data != null) {
-          this.verify = true;
-          this.textButton = "In your libary";
-          this.colorButton = {
-            backgroundColor: "Gray",
-          };
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
     return (
       <div className="form-wrapper">
         {/*
@@ -146,7 +149,7 @@ export default class selectedGameView extends Component {
         </Form>
         */}
 
-        <p>{this.state.image}</p>
+        <img alt="" src={this.state.image} height="500" width="350"></img>
 
         <Table striped bordered hover>
           <thead>

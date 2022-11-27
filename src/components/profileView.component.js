@@ -92,11 +92,11 @@ export default class profileView extends Component {
         )
         .then((res) => {
           console.log("Customer successfully deleted!");
-          this.props.history.push("/logIn");
         })
         .catch((error) => {
           console.log(error);
         });
+      this.props.history.push("/");
     }
   }
 

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
-//import img from "../img/products/Super Smash Bros. Ultimate.png"; ---> SACAR RUTA "REAL"
+//import img from "../img/products/The Legend of Zelda Tears of the Kingdom.png"; //---> SACAR RUTA "REAL"
 
 export default class GameTableRow extends Component {
   constructor(props) {
