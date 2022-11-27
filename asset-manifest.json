@@ -1,14 +1,20 @@
 {
   "files": {
     "main.css": "/sheikah_store_online/static/css/main.a102879e.css",
-    "main.js": "/sheikah_store_online/static/js/main.61a45daa.js",
+    "main.js": "/sheikah_store_online/static/js/main.2b53c363.js",
+    "static/media/Doom Eternal.png": "/sheikah_store_online/static/media/Doom Eternal.eacec76570a3378a2121.png",
+    "static/media/God of War.png": "/sheikah_store_online/static/media/God of War.5d2d4da3f8fc662ec360.png",
+    "static/media/Cyberpunk 2077.png": "/sheikah_store_online/static/media/Cyberpunk 2077.1c9a787e82c183f23e76.png",
+    "static/media/Super Smash Bros. Ultimate.png": "/sheikah_store_online/static/media/Super Smash Bros. Ultimate.6e94797ecb6091387e67.png",
+    "static/media/The Legend of Zelda Tears of the Kingdom.png": "/sheikah_store_online/static/media/The Legend of Zelda Tears of the Kingdom.22872aa4e55afa80277e.png",
     "static/media/icon.png": "/sheikah_store_online/static/media/icon.32aed9390571dc505101.png",
+    "static/media/Halo Infinite.jpg": "/sheikah_store_online/static/media/Halo Infinite.ea59e6d3e6d436be023c.jpg",
     "index.html": "/sheikah_store_online/index.html",
     "main.a102879e.css.map": "/sheikah_store_online/static/css/main.a102879e.css.map",
-    "main.61a45daa.js.map": "/sheikah_store_online/static/js/main.61a45daa.js.map"
+    "main.2b53c363.js.map": "/sheikah_store_online/static/js/main.2b53c363.js.map"
   },
   "entrypoints": [
     "static/css/main.a102879e.css",
-    "static/js/main.61a45daa.js"
+    "static/js/main.2b53c363.js"
   ]
 }
